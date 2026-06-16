@@ -1,0 +1,242 @@
+================================================================================
+                    GUÍA PARA CREAR EL EJECUTABLE (.EXE)
+================================================================================
+
+DESCRIPCIÓN:
+Este documento te explica paso a paso cómo generar un archivo ejecutable (.exe)
+de tu tutorial de Git usando Electron.
+
+================================================================================
+                              REQUISITOS PREVIOS
+================================================================================
+
+1. INSTALAR NODE.JS:
+   - Ve a https://nodejs.org
+   - Descarga la versión LTS (recomendado)
+   - Instala siguiendo el instalador (acepta todas las opciones por defecto)
+   - Verifica la instalación abriendo "Símbolo del sistema" y escribiendo:
+     node --version
+     npm --version
+   
+   Si ves números de versión, ¡está bien instalado!
+
+================================================================================
+                           PASOS PARA CREAR EL EXE
+================================================================================
+
+PASO 1: ABRE UNA TERMINAL EN TU PROYECTO
+   ────────────────────────────────────────
+   a) Abre el Explorador de archivos
+   b) Ve a: PaginaWebTFG
+   c) En la barra de direcciones (arriba), haz clic derecho
+   d) Selecciona "Abrir terminal aquí" o "Open PowerShell window here"
+   
+   (Alternativa: Si tienes VS Code abierto con la carpeta, puedes ir a
+    Terminal > Nueva terminal)
+
+
+PASO 2: INSTALA LAS DEPENDENCIAS
+   ──────────────────────────────
+   En la terminal que acabas de abrir, escribe:
+   
+   npm install
+   
+   Esto instalará:
+   - electron (el framework para crear el ejecutable)
+   - electron-builder (la herramienta para crear el .exe)
+   - electron-is-dev (utilidad para detectar desarrollo/producción)
+   
+   ¡IMPORTANTE! Este paso puede tardar varios minutos. Espera a que termine.
+   Sabrás que terminó cuando vuelva a aparecer el símbolo de entrada (>).
+
+
+PASO 3: VERIFICA QUE FUNCIONA EN DESARROLLO
+   ─────────────────────────────────────────
+   Escribe en la terminal:
+   
+   npm start
+   
+   Esto debería abrir una ventana con tu tutorial de Git.
+   - Prueba hacer clic en algunos comandos
+   - Verifica que se cargan las imágenes correctamente
+   - Cierra la ventana
+   
+   Si todo funciona, ¡estás listo para crear el ejecutable!
+
+
+PASO 4: CREA EL EJECUTABLE
+   ───────────────────────
+   En la terminal, escribe:
+   
+   npm run build
+   
+   Esto puede tardar 2-5 minutos dependiendo de tu PC.
+   
+   Durante el proceso verás algo como:
+   ✓ Compilando...
+   ✓ Creando instalador...
+   ✓ Archivo completado: ...
+   
+   Cuando termine, verás algo como:
+   "Building complete!"
+
+
+PASO 5: ENCUENTRA TU EJECUTABLE
+   ────────────────────────────
+   Una vez que termina el build:
+   
+   a) Abre el Explorador de archivos
+   b) Ve a tu carpeta PaginaWebTFG
+   c) Busca la carpeta llamada "dist"
+   d) Dentro encontrarás dos opciones:
+   
+      • Git Tutorial Setup X.X.X.exe (INSTALADOR)
+        - Crea un programa instalable
+        - Los usuarios deben ejecutarlo para instalar
+        - Toma más espacio (~200MB instalado)
+        - Recomendado para distribución
+      
+      • Git Tutorial X.X.X.exe (PORTABLE)
+        - Ejecutable directo, sin instalación
+        - Corre desde cualquier ubicación
+        - Más pequeño (~150MB)
+        - Mejor para usar localmente
+
+
+PASO 6: PRUEBA EL EJECUTABLE
+   ────────────────────────
+   Haz doble clic en uno de los .exe que acabas de crear.
+   
+   • Si elegiste el instalador: sigue los pasos de instalación
+   • Si elegiste portable: debería abrir directamente
+   
+   Verifica que:
+   ✓ Se abre la ventana correctamente
+   ✓ Los comandos se cargan
+   ✓ Las imágenes se ven
+   ✓ Puedes navegar por los diferentes niveles
+
+
+PASO 7: DISTRIBUCIÓN (OPCIONAL)
+   ─────────────────────────────
+   Si quieres compartir el ejecutable:
+   
+   • CON INSTALADOR: Comparte el archivo "Git Tutorial Setup X.X.X.exe"
+     Los usuarios pueden instalarlo como cualquier programa
+   
+   • PORTABLE: Comparte el archivo "Git Tutorial X.X.X.exe"
+     Los usuarios pueden usarlo directamente sin instalar
+
+================================================================================
+                            SOLUCIÓN DE PROBLEMAS
+================================================================================
+
+PROBLEMA: "npm: No se encontró el comando"
+──────────────────────────────────────────
+Causa: Node.js no está instalado o no se agregó al PATH
+Solución:
+  1. Instala Node.js desde https://nodejs.org
+  2. Reinicia tu terminal/PowerShell
+  3. Intenta nuevamente
+
+PROBLEMA: "npm install" tarda mucho o falla
+─────────────────────────────────────────────
+Causa: Conexión lenta o problema con npm
+Solución:
+  1. Intenta de nuevo
+  2. Si falla repetidamente, borra la carpeta "node_modules"
+  3. Ejecuta "npm cache clean --force"
+  4. Intenta "npm install" nuevamente
+
+PROBLEMA: "npm start" abre una ventana en blanco
+──────────────────────────────────────────────────
+Causa: El archivo index.html no se encuentra o hay un error
+Solución:
+  1. Verifica que "index.html" está en la raíz del proyecto
+  2. Abre la consola de desarrollador (F12) y busca errores
+  3. Revisa que todos los archivos estén en su lugar
+
+PROBLEMA: Las imágenes no se ven en el ejecutable
+────────────────────────────────────────────────
+Causa: Las rutas de las imágenes no son correctas
+Solución:
+  1. Verifica que la carpeta "imagenes/" existe con todas las subcarpetas
+  2. Revisa que las imágenes están en las carpetas correctas
+     Ejemplo: imagenes/git-reset/1.png debe existir
+  3. Reconstruye el ejecutable: npm run build
+
+PROBLEMA: El archivo .exe no existe después de "npm run build"
+───────────────────────────────────────────────────────────────
+Causa: El build falló silenciosamente
+Solución:
+  1. Busca mensajes de error en la terminal
+  2. Verifica que todos los archivos requeridos existen
+  3. Intenta ejecutar "npm run build" nuevamente
+  4. Si persiste, borra la carpeta "dist" y vuelve a intentar
+
+================================================================================
+                          ARCHIVOS IMPORTANTES
+================================================================================
+
+Para que el ejecutable funcione correctamente, estos archivos DEBEN existir:
+
+✓ main.js (punto de entrada de Electron)
+✓ preload.js (seguridad)
+✓ package.json (configuración)
+✓ index.html (página principal)
+✓ js/script.js (lógica)
+✓ css/style.css (estilos)
+✓ comandos/ (carpeta con todos los archivos HTML)
+✓ imagenes/ (carpeta con todas las imágenes)
+
+Si alguno falta, el build fallará.
+
+================================================================================
+                            CONFIGURACIÓN AVANZADA
+================================================================================
+
+Si quieres personalizar el ejecutable (opcional):
+
+1. Cambiar el icono:
+   - Crea un archivo "icon.ico" de 256x256 píxeles
+   - Colócalo en la raíz del proyecto
+   - Ejecuta "npm run build"
+
+2. Cambiar el nombre de la aplicación:
+   - Edita "package.json"
+   - Busca "productName": "Git Tutorial"
+   - Cambia "Git Tutorial" por el nombre que quieras
+
+3. Cambiar la versión:
+   - Edita "package.json"
+   - Busca "version": "1.0.0"
+   - Cambia a la versión que quieras (p.ej. "2.0.1")
+
+================================================================================
+                              RESUMEN RÁPIDO
+================================================================================
+
+Para crear el ejecutable, solo necesitas:
+
+1. npm install
+2. npm start (opcional, para probar)
+3. npm run build
+4. Encuentra el .exe en la carpeta "dist"
+5. ¡Listo para usar!
+
+================================================================================
+
+LINUX INSTALAR LOCALMENTE EN LA CARPETA:
+npm install electron --save-dev
+------
+sudo apt install libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libgbm1 libasound2 -y
+------
+npx electron --version
+------ CARPETA CONCRETA, MIRAR SI SE LLAMA IGUAL
+sudo chown root:root /home/flv-tfg/tfg_electron/PaginaWebTFG/node_modules/electron/dist/chrome-sandbox
+
+sudo chmod 4755 /home/flv-tfg/tfg_electron/PaginaWebTFG/node_modules/electron/dist/chrome-sandbox
+-----
+1. npm install
+2. npm start (opcional, para probar)
+3. npm run build
