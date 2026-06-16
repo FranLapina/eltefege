@@ -1,0 +1,63 @@
+<h1>¿Cómo funciona Git?</h1>
+
+<div class="container-image" style="max-width: 65%; margin: 0 auto 2rem auto;">
+  <img src="../../imagenes/como-funciona-git/1.png" alt="Diagrama de las áreas de Git">
+</div>
+
+<div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;">
+  
+  <div class="container-text" style="flex: 1;">
+    <h2>1. Workspace (Tu área de trabajo)</h2>
+    <p>Es la carpeta de tu computadora donde estás escribiendo el código o los documentos. Aquí es donde los archivos están "vivos" y puedes cometer errores libremente.</p>
+    <ul>
+      <li><strong>Estado:</strong> Los cambios aún no están guardados en el historial de Git.</li>
+    </ul>
+  </div>
+
+  <div class="container-text" style="flex: 1;">
+    <h2>2. Staging Area (La zona de preparación)</h2>
+    <p>Imagina que vas a enviar un paquete por correo. El Staging Area es la caja abierta. Aquí vas metiendo solo los archivos que ya terminaste y que quieres que formen parte de tu próxima "versión oficial".</p>
+    <ul>
+      <li><strong>Comando <code>git add</code>:</strong> Es el acto de meter un archivo dentro de esa caja.</li>
+      <li><strong>Comando <code>git reset</code>:</strong> Si te arrepientes y quieres sacar algo de la caja antes de cerrarla, usas este comando.</li>
+    </ul>
+  </div>
+
+  <div class="container-text" style="flex: 1;">
+    <h2>3. Local Repository (Tu archivo personal)</h2>
+    <p>Cuando decides que lo que hay en la "caja" (Staging Area) está perfecto, cierras la caja con cinta adhesiva y le pones una etiqueta con la fecha y una descripción (ej: "Se arregló el error del botón").</p>
+    <ul>
+      <li><strong>Comando <code>git commit</code>:</strong> Guarda esa caja de forma permanente en el historial de tu computadora. Ahora tienes un "punto de control" al que puedes volver si en el futuro algo sale mal.</li>
+    </ul>
+  </div>
+
+  <div class="container-text" style="flex: 1;">
+    <h2>4. Remote Repository (La nube / El servidor)</h2>
+    <p>Hasta aquí, todo ha pasado solo en tu computadora. El Remote Repository (como GitHub o GitLab) es un servidor en internet donde guardas una copia de seguridad y compartes tu trabajo con otros.</p>
+    <ul>
+      <li><strong>Comando <code>git push</code>:</strong> "Empujas" tus cajas (commits) desde tu computadora al servidor para que otros las vean.</li>
+      <li><strong>Comando <code>git fetch</code>:</strong> Es como asomarse a ver si alguien más ha subido cambios nuevos al servidor, pero sin traerlos todavía a tu mesa de trabajo.</li>
+      <li><strong>Comando <code>git pull</code>:</strong> Traes los cambios nuevos del servidor directamente a tu Workspace para estar actualizado con lo que hicieron tus compañeros.</li>
+    </ul>
+  </div>
+</div>
+</br>
+<div class="container">
+  <div class="container-image" style="max-width: 65%; margin: 2rem auto;">
+    <img src="../../imagenes/como-funciona-git/2.png" alt="Diagrama de Fork y Clone">
+  </div>
+  
+  <div class="container-text">
+    <h2>2. Fork (Tu propia copia del proyecto)</h2>
+    <p>Un Fork es una copia completa e independiente de un repositorio remoto que alguien más ha creado. Es como si tomaras un proyecto que te interesa y dijeras: "Voy a hacer mi propia versión de esto en mi cuenta de GitHub".</p>
+    <ul>
+      <li><strong>¿Cuándo se usa?:</strong> Cuando quieres contribuir a un proyecto que no es tuyo, cuando quieres experimentar sin afectar el proyecto original, o cuando quieres crear una versión personalizada de un proyecto.</li>
+      <li><strong>Diferencia con Clone:</strong> Un Fork es una copia en el servidor (GitHub), mientras que un Clone es descargar esa copia a tu computadora.</li>
+      <li><strong>Pull Request:</strong> Después de hacer cambios en tu Fork, puedes solicitar que tus cambios se incorporen al proyecto original mediante un "Pull Request".</li>
+    </ul>
+  </div>
+ 
+</div>
+
+
+

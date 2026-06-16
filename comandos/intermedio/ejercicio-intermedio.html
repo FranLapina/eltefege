@@ -1,0 +1,425 @@
+<h1>Ejercicio Práctico: Ampliando el Programa de Suma con Ramas</h1>
+
+<p>En este ejercicio practicarás los comandos intermedios de Git trabajando con el mismo programa de suma del ejercicio de principiante. Ampliarás el programa agregando nuevas operaciones (resta y multiplicación) usando ramas, y luego las combinarás en la rama principal.</p>
+
+<h2>📋 Descripción del Ejercicio</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Partiendo del programa de suma ya creado, ampliarás el proyecto con:</p>
+    <ul>
+      <li>Una rama <code>resta</code> para agregar la función de resta</li>
+      <li>Una rama <code>multiplicacion</code> para agregar la función de multiplicación</li>
+      <li>Practicarás <code>git branch</code>, <code>git merge</code>, <code>git reset</code>, <code>git show</code>, y <code>git rm</code></li>
+    </ul>
+    <p>Al final, tendrás un programa con múltiples operaciones matemáticas, todo versionado correctamente con Git.</p>
+  </div>
+</div>
+
+<h2>⚠️ Requisito Previo</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Asegúrate de haber completado el <strong>Ejercicio de Principiante</strong> primero. Debes tener:</p>
+    <ul>
+      <li>El programa en C (suma.h, suma.c, main.c, Makefile)</li>
+      <li>El repositorio Git inicializado con al menos 2 commits</li>
+      <li>El repositorio conectado a GitHub (remoto configurado)</li>
+    </ul>
+    <p>Si no lo has hecho, completa el ejercicio de principiante antes de continuar.</p>
+  </div>
+</div>
+
+<h2>📊 Paso 1: Verifica el estado actual del repositorio</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/1.png">
+  </div>
+  <div class="container-text">
+    <p>Antes de empezar, verifica que tu repositorio está en buen estado:</p>
+    <p class="terminal">git log --oneline</p>
+    <p>Deberías ver al menos 2 commits del ejercicio anterior. También verifica las ramas disponibles:</p>
+    <p class="terminal">git branch</p>
+    <p>Deberías estar en la rama <code>master</code> (o <code>master</code>).</p>
+  </div>
+</div>
+
+<h2>🌿 Paso 2: Crea una rama para la función de resta</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/2.png">
+  </div>
+  <div class="container-text">
+    <p>Crea una nueva rama llamada <code>resta</code>:</p>
+    <p class="terminal">git branch resta</p>
+    <p>Cambia a la nueva rama:</p>
+    <p class="terminal">git checkout resta</p>
+    <p>Verifica que estás en la rama correcta (debería mostrar un * junto a <code>resta</code>):</p>
+    <p class="terminal">git branch</p>
+  </div>
+</div>
+
+<h2>✏️ Paso 3: Implementa la función de resta en la rama</h2>
+<div class="container">
+  <div class="container-text">
+    <h3>3.1 - Modifica suma.h</h3>
+    <p>Abre el archivo <code>suma.h</code> y añade la declaración de la función de resta:</p>
+    <p class="terminal">#ifndef SUMA_H<br>
+#define SUMA_H<br>
+<br>
+int suma(int a, int b);<br>
+<strong>int resta(int a, int b);</strong><br>
+<br>
+#endif</p>
+
+    <h3>3.2 - Modifica suma.c</h3>
+    <p>Abre el archivo <code>suma.c</code> e implementa la función de resta:</p>
+    <p class="terminal">#include "suma.h"<br>
+<br>
+int suma(int a, int b) {<br>
+&nbsp;&nbsp;return a + b;<br>
+}<br>
+<br>
+<strong>int resta(int a, int b) {<br>
+&nbsp;&nbsp;return a - b;<br>
+}</strong></p>
+
+    <h3>3.3 - Modifica main.c</h3>
+    <p>Abre el archivo <code>main.c</code> y usa la función de resta:</p>
+    <p class="terminal">#include &lt;stdio.h&gt;<br>
+#include "suma.h"<br>
+<br>
+int main() {<br>
+&nbsp;&nbsp;int numero1 = 10;<br>
+&nbsp;&nbsp;int numero2 = 7;<br>
+&nbsp;&nbsp;int resultado_suma = suma(numero1, numero2);<br>
+&nbsp;&nbsp;<strong>int resultado_resta = resta(numero1, numero2);</strong><br>
+<br>
+&nbsp;&nbsp;printf("La suma de %d + %d = %d\n", numero1, numero2, resultado_suma);<br>
+&nbsp;&nbsp;<strong>printf("La resta de %d - %d = %d\n", numero1, numero2, resultado_resta);</strong><br>
+&nbsp;&nbsp;return 0;<br>
+}</p>
+  </div>
+</div>
+
+<h2>💾 Paso 4: Guarda los cambios de la rama de resta</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/3.png">
+  </div>
+  <div class="container-text">
+    <p>Añade todos los cambios al Staging Area:</p>
+    <p class="terminal">git add .</p>
+    <p>Crea un commit describiendo los cambios:</p>
+    <p class="terminal">git commit -m "Agregar función de resta al programa"</p>
+    <p>Verifica el commit fue creado:</p>
+    <p class="terminal">git log --oneline</p>
+  </div>
+</div>
+
+<h2>🌿 Paso 5: Crea una rama para la función de multiplicación</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Ahora vuelve a la rama principal antes de crear la nueva rama:</p>
+    <p class="terminal">git checkout master</p>
+    <p>Crea una nueva rama llamada <code>multiplicacion</code>:</p>
+    <p class="terminal">git branch multiplicacion</p>
+    <p>Cambia a la nueva rama:</p>
+    <p class="terminal">git checkout multiplicacion</p>
+    <p><strong>Nota:</strong> Puedes combinar estos comandos en uno: <code>git checkout -b multiplicacion</code></p>
+  </div>
+</div>
+
+<h2>✏️ Paso 6: Implementa la función de multiplicación en la rama</h2>
+<div class="container">
+  <div class="container-text">
+    <h3>6.1 - Modifica suma.h</h3>
+    <p class="terminal">#ifndef SUMA_H<br>
+#define SUMA_H<br>
+<br>
+int suma(int a, int b);<br>
+<strong>int multiplicacion(int a, int b);</strong><br>
+<br>
+#endif</p>
+
+    <h3>6.2 - Modifica suma.c</h3>
+    <p class="terminal">#include "suma.h"<br>
+<br>
+int suma(int a, int b) {<br>
+&nbsp;&nbsp;return a + b;<br>
+}<br>
+<br>
+<strong>int multiplicacion(int a, int b) {<br>
+&nbsp;&nbsp;return a * b;<br>
+}</strong></p>
+
+    <h3>6.3 - Modifica main.c</h3>
+    <p class="terminal">#include &lt;stdio.h&gt;<br>
+#include "suma.h"<br>
+<br>
+int main() {<br>
+&nbsp;&nbsp;int numero1 = 10;<br>
+&nbsp;&nbsp;int numero2 = 7;<br>
+&nbsp;&nbsp;int resultado_suma = suma(numero1, numero2);<br>
+&nbsp;&nbsp;<strong>int resultado_mult = multiplicacion(numero1, numero2);</strong><br>
+<br>
+&nbsp;&nbsp;printf("La suma de %d + %d = %d\n", numero1, numero2, resultado_suma);<br>
+&nbsp;&nbsp;<strong>printf("La multiplicación de %d * %d = %d\n", numero1, numero2, resultado_mult);</strong><br>
+&nbsp;&nbsp;return 0;<br>
+}</p>
+  </div>
+</div>
+
+<h2>💾 Paso 7: Guarda los cambios de la rama de multiplicación</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/4.png">
+  </div>
+  <div class="container-text">
+    <p>Añade y confirma los cambios:</p>
+    <p class="terminal">git add .<br>
+git commit -m "Agregar función de multiplicación al programa"</p>
+    <p>Verifica que el commit se creó:</p>
+    <p class="terminal">git log --oneline</p>
+  </div>
+</div>
+
+<h2>📊 Paso 8: Visualiza la estructura de ramas</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/5.png">
+  </div>
+  <div class="container-text">
+    <p>Ver todas las ramas y su historial:</p>
+    <p class="terminal">git branch -a</p>
+    <p>Ver un gráfico visual del historial con ramas:</p>
+    <p class="terminal">git log --oneline --graph --all</p>
+    <p>Verás cómo se han dividido los cambios en diferentes ramas.</p>
+  </div>
+</div>
+
+<h2>🔀 Paso 9: Fusiona la rama de resta en master</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/6.png">
+  </div>
+  <div class="container-text">
+    <p>Vuelve a la rama principal:</p>
+    <p class="terminal">git checkout master</p>
+    <p>Ahora fusiona la rama <code>resta</code>:</p>
+    <p class="terminal">git merge resta</p>
+    <p>Git combinará los cambios automáticamente. Verifica que todo se fusionó correctamente:</p>
+    <p class="terminal">git log --oneline</p>
+  </div>
+</div>
+
+<h2>📝 Paso 10: Entiende la diferencia entre versiones con git show</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Ve los detalles de un commit específico usando <code>git show</code>:</p>
+    <p class="terminal">git show HEAD</p>
+    <p>Muestra los cambios del commit más reciente. Puedes ver un commit anterior indicando su hash:</p>
+    <p class="terminal">git log --oneline</p>
+    <p>Luego usa:</p>
+    <p class="terminal">git show &lt;hash-del-commit&gt;</p>
+    <p>Por ejemplo: <code>git show a1b2c3d</code> (usa los primeros 7 caracteres del hash)</p>
+  </div>
+</div>
+
+<h2>🔀 Paso 11: Fusiona la rama de multiplicación en master</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/7.png">
+  </div>
+  <div class="container-text">
+    <p>Ahora fusiona la segunda rama:</p>
+    <p class="terminal">git merge multiplicacion</p>
+    <p>Si hay conflictos, Git te lo indicará. Es probable que no haya conflictos porque trabajaste en archivos diferentes en cada rama, pero a continuación te mostramos cómo resolverlos si ocurren.</p>
+    </div>
+</div>
+<div class="container">
+  <div class="container-text">
+    <h3>11.1 - Si NO hay conflictos</h3>
+    <p>Git completará el merge automáticamente y verás un mensaje similar a:</p>
+    <p class="terminal">Merge made by the 'recursive' strategy.<br>
+ suma.h | 1 +<br>
+ suma.c | 5 +++++<br>
+ main.c | 3 +++<br>
+ 3 files changed, 9 insertions(+)</p>
+    <p>En este caso, simplemente verifica el historial:</p>
+    <p class="terminal">git log --oneline --graph --all</p>
+
+    <h3>11.2 - Si HAY conflictos</h3>
+    <p>Si Git detecta conflictos, verás un mensaje como:</p>
+    <p class="terminal">Auto-merging suma.h<br>
+Auto-merging suma.c<br>
+Auto-merging main.c<br>
+CONFLICT (content): Merge conflict in suma.h<br>
+Automatic merge failed; fix conflicts and then commit the result.</p>
+
+    <h4>Paso 11.2.1 - Ver los conflictos</h4>
+    <p>Para ver qué archivos tienen conflictos:</p>
+    <p class="terminal">git status</p>
+    <p>Verás archivos marcados como <code>both modified</code> (modificados en ambas ramas).</p>
+
+    <h4>Paso 11.2.2 - Abre el archivo conflictivo</h4>
+    <p>Abre el archivo que tiene conflicto (por ejemplo, <code>suma.h</code>) en tu editor. Verás secciones marcadas así:</p>
+    <p class="terminal">#ifndef SUMA_H<br>
+#define SUMA_H<br>
+<br>
+int suma(int a, int b);<br>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD<br>
+<strong>int resta(int a, int b);</strong><br>
+=======<br>
+<strong>int multiplicacion(int a, int b);</strong><br>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; multiplicacion<br>
+<br>
+#endif</p>
+    <p><strong>Explicación:</strong></p>
+    <ul>
+      <li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> - El contenido de la rama actual (master con resta)</li>
+      <li><code>=======</code> - Separador entre los dos cambios</li>
+      <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; multiplicacion</code> - El contenido de la rama que se está fusionando</li>
+    </ul>
+
+    <h4>Paso 11.2.3 - Resuelve el conflicto</h4>
+    <p>En este caso, quieres mantener AMBAS funciones. Modifica el archivo a:</p>
+    <p class="terminal">#ifndef SUMA_H<br>
+#define SUMA_H<br>
+<br>
+int suma(int a, int b);<br>
+<strong>int resta(int a, int b);</strong><br>
+<strong>int multiplicacion(int a, int b);</strong><br>
+<br>
+#endif</p>
+    <p><strong>Elimina las líneas de conflicto</strong> (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>) y mantén ambas funciones. En VScode nos da la opción de clickear en la línea "aceptar ambos cambios", se puede ver encima del conflicto.</p>
+
+    <h4>Paso 11.2.4 - Haz lo mismo con otros archivos</h4>
+    <p>Si hay conflictos en <code>suma.c</code> y <code>main.c</code>, resuelve de la misma manera: mantén ambas implementaciones.</p>
+    <p class="terminal">suma.c deber contener:</p>
+    <p class="terminal">int suma(int a, int b) { return a + b; }<br>
+int resta(int a, int b) { return a - b; }<br>
+int multiplicacion(int a, int b) { return a * b; }</p>
+    <p class="terminal">main.c deber contener:</p>
+    <p class="terminal">int resultado_suma = suma(numero1, numero2);<br>
+int resultado_resta = resta(numero1, numero2);<br>
+int resultado_mult = multiplicacion(numero1, numero2);</p>
+
+    <h4>Paso 11.2.5 - Finaliza el merge</h4>
+    <p>Una vez resueltos todos los conflictos, añade los archivos y crea un commit de merge:</p>
+    <p class="terminal">git add .</p>
+    <p>Haz el commit (Git sugerirá automáticamente un mensaje de merge):</p>res
+    <p class="terminal">git commit -m "Merge branch 'multiplicacion' en master"</p>
+    <p>Verifica que el merge se completó:</p>
+    <p class="terminal">git log --oneline --graph --all</p>
+  </div>
+</div>
+
+<h2>✏️ Paso 12: Practica git reset (Revirtiendo cambios)</h2>
+<div class="container">
+  <div class="container-text">
+    <h3>12.1 - Simula un cambio que quieres deshacer</h3>
+    <p>Modifica el archivo <code>main.c</code> y haz un cambio que después querrás revertir:</p>
+    <p class="terminal">#include &lt;stdio.h&gt;<br>
+#include "suma.h"<br>
+<br>
+int main() {<br>
+&nbsp;&nbsp;int numero1 = 99;  // Cambio temporal<br>
+&nbsp;&nbsp;int numero2 = 88;  // Cambio temporal<br>
+&nbsp;&nbsp;// ... resto del código</p>
+
+    <p>Añade y haz commit del cambio:</p>
+    <p class="terminal">git add main.c<br>
+git commit -m "Cambio temporal (será revertido)"</p>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/8.png">
+  </div>
+  <div class ="container-text">
+    <h3>12.2 - Deshaz el commit</h3>
+    <p>Usa <code>git reset</code> para volver a la versión anterior:</p>
+    <p class="terminal">git reset --soft HEAD~1</p>
+    <p>Esto deshace el commit pero mantiene los cambios en el Staging Area. Si quieres deshacer todo completamente:</p>
+    <p class="terminal">git reset --hard HEAD~1</p>
+    <p><strong>Advertencia:</strong> <code>--hard</code> elimina los cambios permanentemente. Úsalo con cuidado.</p>
+
+    <p>Verifica que el commit fue revertido:</p>
+    <p class="terminal">git log --oneline</p>
+  </div>
+</div>
+
+<h2>🗑️ Paso 13: Practica git rm (Eliminar archivos del repositorio)</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-intermedio/9.png">
+  </div>
+  <div class="container-text">
+    <h3>13.1 - Crea un archivo temporal</h3>
+    <p>Crea un archivo de prueba que ya no necesitas:</p>
+    <p class="terminal">echo "archivo temporal" > temporal.txt</p>
+
+    <p>Añádelo al repositorio:</p>
+    <p class="terminal">git add temporal.txt<br>
+git commit -m "Agregar archivo temporal"</p>
+
+    <h3>13.2 - Elimina el archivo</h3>
+    <p>Usa <code>git rm</code> para eliminarlo del repositorio:</p>
+    <p class="terminal">git rm temporal.txt</p>
+    <p>Haz commit para confirmar la eliminación:</p>
+    <p class="terminal">git commit -m "Eliminar archivo temporal"</p>
+
+    <p>Verifica que el archivo ya no existe y que se registró la eliminación:</p>
+    <p class="terminal">git log --oneline</p>
+  </div>
+</div>
+
+<h2>🌿 Paso 14: Limpia las ramas ya fusionadas</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Ya que has fusionado las ramas, puedes eliminarlas para mantener el repositorio limpio:</p>
+    <p class="terminal">git branch -d resta<br>
+git branch -d multiplicacion</p>
+
+    <p>Verifica que las ramas fueron eliminadas:</p>
+    <p class="terminal">git branch</p>
+    <p>Solo deberías ver la rama <code>master</code>.</p>
+  </div>
+</div>
+
+<h2>🚀 Paso 15: Sube los cambios a GitHub</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Ahora sube todos los cambios al repositorio remoto:</p>
+    <p class="terminal">git push origin master</p>
+
+    <p>Si no has eliminado aun las ramas creadas también puedes subir las ramas antes de eliminarlas (para dejar historial en remoto):</p>
+    <p class="terminal">git push origin resta<br>
+git push origin multiplicacion</p>
+
+    <p>Luego elimina las ramas en el remoto:</p>
+    <p class="terminal">git push origin --delete resta<br>
+git push origin --delete multiplicacion</p>
+
+    <p>Verifica en GitHub que todos tus cambios se han subido correctamente.</p>
+  </div>
+</div>
+
+<h2>🎯 Resumen de comandos utilizados</h2>
+<div class="container">
+  <div class="container-text">
+    <ul>
+      <li><strong><code>git branch</code></strong> - Creó y listó las ramas</li>
+      <li><strong><code>git checkout</code></strong> - Cambió entre ramas</li>
+      <li><strong><code>git checkout -b</code></strong> - Creó y cambió a una nueva rama en un comando</li>
+      <li><strong><code>git merge</code></strong> - Fusionó ramas en la rama principal</li>
+      <li><strong><code>git show</code></strong> - Mostró detalles de commits específicos</li>
+      <li><strong><code>git reset --soft</code></strong> - Deshizo un commit manteniendo cambios</li>
+      <li><strong><code>git reset --hard</code></strong> - Deshizo un commit eliminando cambios</li>
+      <li><strong><code>git rm</code></strong> - Eliminó archivos del repositorio</li>
+      <li><strong><code>git log --oneline --graph --all</code></strong> - Visualizó la estructura de ramas</li>
+      <li><strong><code>git push</code></strong> - Subió cambios al servidor remoto</li>
+      <li><strong><code>git push origin --delete</code></strong> - Eliminó ramas en el remoto</li>
+    </ul>
+  </div>
+</div>
+

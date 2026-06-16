@@ -1,0 +1,297 @@
+<h1>Ejercicio Práctico: Programa de Suma en C con Git</h1>
+
+<p>En este ejercicio practicarás los comandos básicos de Git creando y versionando un pequeño programa en C que suma dos números. Aplicarás todos los comandos que has aprendido en este nivel.</p>
+
+<h2>📋 Descripción del Ejercicio</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Vas a crear un programa en C compuesto por:</p>
+    <ul>
+      <li><strong>suma.h</strong> - Archivo de cabecera con la declaración de la función</li>
+      <li><strong>suma.c</strong> - Archivo con la implementación de la función</li>
+      <li><strong>main.c</strong> - Archivo principal que usa la función</li>
+      <li><strong>Makefile</strong> - Archivo para automatizar la compilación</li>
+    </ul>
+    <p>Luego usarás Git para versionarlos y ver cómo funciona el control de versiones.</p>
+  </div>
+</div>
+
+<h2>📝 Paso 1: Crea los archivos del programa</h2>
+<div class="container">
+  <div class="container-text">
+    <h3>suma.h (Archivo de cabecera)</h3>
+    <p>Crea un archivo llamado <code>suma.h</code> con el siguiente contenido:</p>
+    <p class="terminal">#ifndef SUMA_H<br>
+#define SUMA_H<br>
+<br>
+int suma(int a, int b);<br>
+<br>
+#endif</p>
+
+    <h3>suma.c (Implementación)</h3>
+    <p>Crea un archivo llamado <code>suma.c</code> con el siguiente contenido:</p>
+    <p class="terminal">#include "suma.h"<br>
+<br>
+int suma(int a, int b) {<br>
+&nbsp;&nbsp;return a + b;<br>
+}</p>
+
+    <h3>main.c (Programa principal)</h3>
+    <p>Crea un archivo llamado <code>main.c</code> con el siguiente contenido:</p>
+    <p class="terminal">#include &lt;stdio.h&gt;<br>
+#include "suma.h"<br>
+<br>
+int main() {<br>
+&nbsp;&nbsp;int numero1 = 5;<br>
+&nbsp;&nbsp;int numero2 = 3;<br>
+&nbsp;&nbsp;int resultado = suma(numero1, numero2);<br>
+<br>
+&nbsp;&nbsp;printf("La suma de %d + %d = %d\n", numero1, numero2, resultado);<br>
+&nbsp;&nbsp;return 0;<br>
+}</p>
+
+    <h3>Makefile (Automatización de compilación)</h3>
+    <p>Crea un archivo llamado <code>Makefile</code> (sin extensión) para automatizar la compilación:</p>
+    <p class="terminal">CC=gcc<br>
+CFLAGS=-Wall -Wextra<br>
+TARGET=suma<br>
+SOURCES=main.c suma.c<br>
+OBJECTS=$(SOURCES:.c=.o)<br>
+<br>
+all: $(TARGET)<br>
+<br>
+$(TARGET): $(OBJECTS)<br>
+&nbsp;&nbsp;$(CC) $(CFLAGS) -o $@ $^<br>
+<br>
+%.o: %.c<br>
+&nbsp;&nbsp;$(CC) $(CFLAGS) -c -o $@ $&lt;<br>
+<br>
+clean:<br>
+&nbsp;&nbsp;rm -f $(OBJECTS) $(TARGET)<br>
+<br>
+.PHONY: all clean</p>
+  </div>
+</div>
+
+<h2>📂 Paso 2: Inicializa el repositorio Git</h2>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/ejercicio-principiante/1.png" alt="git init">
+  </div>
+  <div class="container-text">
+    <p>Abre la terminal en la carpeta donde creaste los archivos y ejecuta:</p>
+    <p class="terminal">git init</p>
+    <p>Esto creará un repositorio Git local. Deberías ver un mensaje indicando que se creó la carpeta <code>.git</code>.</p>
+  </div>
+</div>
+
+<h2>📝 Paso 3: Crea un archivo .gitignore</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Crea un archivo <code>.gitignore</code> para evitar que archivos innecesarios se suban a Git:</p>
+    <p class="terminal"># Archivos compilados<br>
+*.o<br>
+*.exe<br>
+*.out<br>
+<br>
+# Archivos del sistema<br>
+.DS_Store<br>
+<br>
+# IDEs<br>
+.vscode/<br>
+.idea/</p>
+    <p>Esto asegura que solo versionaremos el código fuente, no los archivos compilados.</p>
+  </div>
+</div>
+
+<h2>📊 Paso 4: Verifica el estado del repositorio</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/2.png" alt="git status">
+    </div>
+    <div class="container-text">
+        <p>Ejecuta el siguiente comando para ver qué archivos están sin rastrear:</p>
+        <p class="terminal">git status</p>
+        <p>Deberías ver los archivos .c, .h, .gitignore y Makefile en la lista de archivos sin rastrear (sin tracked).</p>
+    </div>
+</div>
+
+<h2>➕ Paso 5: Añade los archivos al Staging Area</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/3.png" alt="git add">
+    </div>
+  <div class="container-text">
+    <p>Ahora añade todos los archivos al Staging Area:</p>
+    <p class="terminal">git add .</p>
+    <p>Verifica que se han añadido correctamente:</p>
+    <p class="terminal">git status</p>
+    <p>Ahora deberías ver los archivos en verde, listos para hacer commit.</p>
+  </div>
+</div>
+
+<h2>💾 Paso 6: Crea tu primer Commit</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/4.png" alt="git commit">
+    </div>
+  <div class="container-text">
+    <p>Guarda los cambios en el historial de Git con un mensaje descriptivo:</p>
+    <p class="terminal">git commit -m "Crear programa de suma en C"</p>
+    <p>Has creado tu primer punto de control en el historial. Ahora puedes volver a este estado en cualquier momento.</p>
+  </div>
+</div>
+
+<h2>📜 Paso 7: Visualiza el historial de cambios</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/5.png" alt="git log">
+    </div>
+  <div class="container-text">
+    <p>Ve el historial de commits realizados:</p>
+    <p class="terminal">git log</p>
+    <p>Deberías ver tu commit con la fecha, el autor y el mensaje.</p>
+  </div>
+</div>
+
+<h2>✏️ Paso 8: Modifica un archivo y ve los cambios</h2>
+<div class="container">
+  <div class="container-text">
+    <p>Abre <code>main.c</code> y cambia los números que se suman:</p>
+    <p class="terminal">#include &lt;stdio.h&gt;<br>
+#include "suma.h"<br>
+<br>
+int main() {<br>
+&nbsp;&nbsp;int numero1 = 10;  // Cambiado de 5 a 10<br>
+&nbsp;&nbsp;int numero2 = 7;   // Cambiado de 3 a 7<br>
+&nbsp;&nbsp;int resultado = suma(numero1, numero2);<br>
+<br>
+&nbsp;&nbsp;printf("La suma de %d + %d = %d\n", numero1, numero2, resultado);<br>
+&nbsp;&nbsp;return 0;<br>
+}</p>
+  </div>
+</div>
+
+<h2>🔍 Paso 9: Compara los cambios</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/6.png" alt="git diff">
+    </div>
+  <div class="container-text">
+    <p>Usa el comando diff para ver exactamente qué cambió:</p>
+    <p class="terminal">git diff</p>
+    <p>Verás las líneas eliminadas (en rojo) y las nuevas (en verde). Esto te ayuda a revisar cambios antes de hacer commit.</p>
+  </div>
+</div>
+
+<h2>➕ Paso 10: Añade los cambios y haz otro Commit</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/7.png" alt="git add y git commit">
+    </div>
+  <div class="container-text">
+    <p>Añade los cambios al Staging Area:</p>
+    <p class="terminal">git add main.c</p>
+    <p>Haz un nuevo commit con un mensaje descriptivo:</p>
+    <p class="terminal">git commit -m "Actualizar números en programa de suma"</p>
+    <p>Ahora tienes dos commits en el historial.</p>
+  </div>
+</div>
+
+<h2>📜 Paso 11: Revisa el historial completo</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/8.png" alt="git log con varios commits">
+    </div>
+  <div class="container-text">
+    <p>Ejecuta nuevamente git log para ver ambos commits:</p>
+    <p class="terminal">git log</p>
+    <p>Notarás que los commits están ordenados del más reciente al más antiguo.</p>
+  </div>
+</div>
+
+<h2>🌐 Paso 12: Sube tu repositorio a GitHub</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/9.png" alt="Subir repositorio a GitHub">
+        <img src="../../imagenes/ejercicio-principiante/10.png" alt="Subir repositorio a GitHub">
+    </div>
+  <div class="container-text">
+    <h3>12.1 - Crea un repositorio en GitHub</h3>
+    <p>Ve a <a href="https://github.com/new" target="_blank">https://github.com/new</a> y crea un nuevo repositorio con el nombre <code>programa-suma</code>. No añadas README, .gitignore ni licencia por ahora (ya tenemos lo necesario).</p>
+    
+    <h3>12.2 - Conecta tu repositorio local con GitHub</h3>
+    <p>Una vez creado el repositorio en GitHub, verás instrucciones. En tu terminal local, ejecuta:</p>
+    <p class="terminal">git remote add origin https://github.com/tu-usuario/programa-suma.git</p>
+    <p><strong>Nota:</strong> Reemplaza <code>tu-usuario</code> con tu nombre de usuario de GitHub.</p>
+    
+    <h3>12.3 - Verifica la conexión</h3>
+    <p>Comprueba que la conexión remota se ha establecido correctamente:</p>
+    <p class="terminal">git remote -v</p>
+    <p>Deberías ver dos líneas: una para fetch y otra para push, ambas apuntando a tu repositorio de GitHub.</p>
+  </div>
+</div>
+
+<h2>📂 Paso 13: Genera tu token de acceso personal</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/12.png" alt="Generar token de acceso personal en GitHub">
+        <img src="../../imagenes/ejercicio-principiante/13.png" alt="git push">
+    </div>
+  <div class="container-text">
+    <p>Ve a <a target="_blank">https://github.com/settings/tokens/new</a> y genera un nuevo token con permisos de acceso a tu repositorio.</p>
+    <p>Cuando hagas push por primera vez, Git te pedirá autenticación. Usa tu token de acceso personal como contraseña.</p>
+    <p><strong>Importante:</strong> Guarda tu token en un lugar seguro, no lo compartas con nadie.</p>
+    <p>Como se puede ver, en la captura de pantalla se muestra que puede ponerse una fecha concreta de expiración del token y además que permisos se obtienen con el mismo.</p>
+  </div>
+</div>
+
+<h2>🌐 Paso 14: Sube tu código a GitHub</h2>
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/ejercicio-principiante/14.png" alt="git push">
+    </div>
+  <div class="container-text">
+    <h3>14.1 - Sube tu código a GitHub</h3>
+    <p>Ahora sube todos tus commits al servidor remoto:</p>
+    <p class="terminal">git push -u origin main</p>
+    <p><strong>Nota:</strong> En versiones antiguas de Git, la rama principal podría llamarse <code>master</code> en lugar de <code>main</code>. Si obtienes un error, intenta con:</p>
+    <p class="terminal">git push -u origin master</p>
+    <p>Git te pedirá autenticación. Puedes usar:</p>
+    <ul>
+      <li>Tu token de acceso personal (PAT)</li>
+    </ul>
+
+    <h3>14.2 - Verifica en GitHub</h3>
+    <p>Ve a tu repositorio en GitHub (<code>https://github.com/tu-usuario/programa-suma</code>) y verifica que todos tus archivos están allí:</p>
+    <ul>
+      <li>suma.h</li>
+      <li>suma.c</li>
+      <li>main.c</li>
+      <li>Makefile</li>
+      <li>.gitignore</li>
+    </ul>
+    <p>Haz clic en la pestaña "Commits" para ver el historial de cambios que realizaste.</p>
+  </div>
+</div>
+
+<h2>🎯 Resumen de comandos utilizados</h2>
+<div class="container">
+  <div class="container-text">
+    <ul>
+      <li><strong><code>git init</code></strong> - Inicializó el repositorio</li>
+      <li><strong><code>git status</code></strong> - Verificó el estado de los archivos</li>
+      <li><strong><code>git add</code></strong> - Añadió archivos al Staging Area</li>
+      <li><strong><code>git commit</code></strong> - Guardó cambios en el historial</li>
+      <li><strong><code>git log</code></strong> - Vio el historial de commits</li>
+      <li><strong><code>git diff</code></strong> - Comparó cambios entre versiones</li>
+      <li><strong><code>.gitignore</code></strong> - Especificó qué archivos ignorar</li>
+      <li><strong><code>Makefile</code></strong> - Automatizó la compilación del proyecto</li>
+      <li><strong><code>make</code></strong> - Compiló el programa automáticamente</li>
+      <li><strong><code>make clean</code></strong> - Limpió los archivos compilados</li>
+      <li><strong><code>git remote add</code></strong> - Conectó el repositorio local con GitHub</li>
+      <li><strong><code>git remote -v</code></strong> - Verificó las conexiones remotas</li>
+      <li><strong><code>git push</code></strong> - Subió los commits al servidor remoto</li>
+    </ul>
+  </div>
+</div>

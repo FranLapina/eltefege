@@ -1,0 +1,121 @@
+<h1>Jupyter Notebook: Instalación</h1>
+
+<p>Jupyter Notebook es una aplicación web que permite crear y compartir documentos que contienen código ejecutable, ecuaciones, visualizaciones y texto narrativo. Es especialmente útil para análisis de datos, machine learning y educación. En este tutorial aprenderás a instalar Jupyter Notebook en tu sistema.</p>
+
+<h2>Crear un Entorno Virtual (Muy Importante)</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <p><strong>¿Por qué necesitas un entorno virtual?</strong></p>
+    <p>Un entorno virtual es un espacio aislado en tu computadora donde puedes instalar paquetes de Python sin afectar el sistema global. Esto evita conflictos entre proyectos y es la mejor práctica profesional.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Paso 1: Crear el entorno virtual</strong></p>
+    <p>Abre tu terminal en el directorio donde guardarás tus proyectos:</p>
+    <p class="terminal">python -m venv nombre_entorno</p>
+    <p>O si tienes Python 3:</p>
+    <p class="terminal">python3 -m venv nombre_entorno</p>
+    <p>Esto crea una carpeta llamada <code>nombre_entorno</code> con el entorno virtual.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Paso 2: Activar el entorno virtual</strong></p>
+    <p><strong>Linux:</strong></p>
+    <p class="terminal">source nombre_entorno/bin/activate</p>
+    <p>Una vez activado, verás el nombre del entorno entre paréntesis en tu terminal: <code>(nombre_entorno) ></code></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Paso 3: Actualizar pip (gestor de paquetes)</strong></p>
+    <p>Asegúrate de que pip está actualizado:</p>
+    <p class="terminal">python -m pip install --upgrade pip</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Paso 4: Instalar librerías adicionales útiles</strong></p>
+    <p>Mientras el entorno está activado, instala librerías comunes para análisis de datos:</p>
+    <p class="terminal">pip install pandas numpy matplotlib scikit-learn</p>
+    <p>Estas son herramientas fundamentales para ciencia de datos.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Desactivar el entorno virtual</strong></p>
+    <p>Cuando termines de trabajar, puedes desactivar el entorno escribiendo:</p>
+    <p class="terminal">deactivate</p>
+    <p>Verás que desaparece el nombre del entorno del terminal.</p>
+  </div>
+</div>
+
+<h2>💻 Ahora En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <p>VSCode tiene soporte nativo para Jupyter Notebooks. Puedes trabajar con archivos .ipynb directamente en el editor.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/jupyter-notebook-instalacion/1.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Instalar la extensión de Jupyter en VSCode:</strong></p>
+    <ul>
+      <li>Abre VSCode y ve a la sección de extensiones (<code>Ctrl+Shift+X</code>)</li>
+      <li>Busca "Jupyter" oficial de Microsoft</li>
+      <li>Haz clic en "Install"</li>
+      <li>Esto instalará todo lo necesario para trabajar con notebooks en VSCode</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/jupyter-notebook-instalacion/2.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Crear un nuevo notebook en VSCode:</strong></p>
+    <ul>
+      <li>Ve a File > New File o presiona <code>Ctrl+N</code></li>
+      <li>Selecciona "Jupyter Notebook" como tipo de archivo</li>
+      <li>O crea un archivo con extensión <code>.ipynb</code></li>
+      <li>VSCode abrirá el editor de notebooks automáticamente</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/jupyter-notebook-instalacion/3.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Seleccionar el intérprete de Python:</strong></p>
+    <ul>
+      <li>En la esquina superior derecha del notebook, haz clic en "Select Kernel"</li>
+    </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/jupyter-notebook-instalacion/4.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Seleccionar el intérprete de Python:</strong></p>
+    <ul>
+      <li>Elige la versión de Python que desees usar, la que acabas de crear</li>
+      <li>Si no ves tu entorno virtual, asegúrate de que Python esté instalado y pip tenga jupyter</li>
+    </ul>
+  </div>
+</div>
+      

@@ -1,0 +1,38 @@
+<h1><code>git merge</code></h1>
+<p>Se utiliza para fusionar cambios de una rama a otra. Combina el historial de commits de dos ramas, integrando los cambios realizados en una rama dentro de otra rama.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-merge/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      </p>Primero visualiza todas tus ramas con el siguiente comando para ver cuál quieres fusionar<p class="terminal">git branch -a (la que tiene el asterisco es la rama sobre la cual ejecutamos los comandos)</p>Luego cambia a la rama destino (por ejemplo <code>main</code>) con <p class="terminal">git checkout main</p>Una vez en la rama destino, ejecuta el merge: <p class="terminal">git merge Rama (Rama sería la rama que queremos fusionar con la seleccionada con "checkout")</p>Git realizará la fusión automáticamente (Fast-forward) e integrará los cambios. Finalmente, sube los cambios al repositorio remoto con <p class="terminal">git push</p>y confirma que la fusión se ha completado correctamente.</p>
+    </ol>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>Para ver las ramas que ya han sido fusionadas: <p class="terminal">git branch --merged</p>Para ver las ramas que aún no han sido fusionadas: <p class="terminal">git branch --no-merged</p>Para abortar una fusión en caso de conflicto: <p class="terminal">git merge --abort</p></p>
+    </ol>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/git-merge/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>En la ventana de control de git dentro de vscode, puedes fusionar ramas cambiando a la rama destino y luego abriendo la terminal integrada para ejecutar el comando <code>git merge</code>. Si hay conflictos, vscode te los mostrará de forma visual permitiéndote resolverlos fácilmente.</p>
+    </ol>
+  </div>
+</div>

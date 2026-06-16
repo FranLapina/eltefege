@@ -1,0 +1,46 @@
+<h1><code>git reset</code></h1>
+<p>Se utiliza para deshacer cambios en tu repositorio local. Puede deshacer commits, mover el HEAD a un commit anterior, o eliminar cambios del staging area (área de preparación). Es una herramienta poderosa pero requiere cuidado al usarla.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-reset/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>Dentro de la carpeta ejecutamos lo siguiente: <p class="terminal">git reset</p>Esto deshace todos los cambios en el staging area (aquellos archivos que habías hecho <code>git add</code>), pero mantiene los cambios en tu directorio de trabajo. Los archivos vuelven a estar "sin preparar".</p>
+    </ol>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p><strong>Los tres modos principales de git reset:</strong></p>
+      <p><strong style="color: #24292e;">--soft:</strong> Deshace el commit pero mantiene los cambios en el staging area (preparados). Es útil cuando quieres rehacer el commit: <p class="terminal">git reset --soft HEAD~1</p></p>
+      <p><strong style="color: #24292e;">--mixed (por defecto):</strong> Deshace el commit y saca los cambios del staging area, pero los mantiene en el directorio de trabajo (sin preparar): <p class="terminal">git reset --mixed HEAD~1</p></p>
+      <p><strong style="color: #24292e;">--hard:</strong> Deshace el commit y descarta todos los cambios. ¡CUIDADO! Los cambios se pierden: <p class="terminal">git reset --hard HEAD~1</p></p>
+      
+      <p><strong>Otros comandos útiles:</strong></p>
+      <p>Para deshacer cambios en el staging area de un archivo específico: <p class="terminal">git reset <i>(nombre del archivo)</i></p></p>
+      <p>Para deshacer múltiples commits pero mantener los cambios: <p class="terminal">git reset HEAD~<i>(número de commits)</i></p></p>
+      <p>Para deshacer cambios en un archivo específico a su estado anterior: <p class="terminal">git reset <i>(hash del commit)</i> -- <i>(nombre del archivo)</i></p></p>
+    </ol>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/git-reset/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>En VSCode, puedes usar `git reset` de varias formas: En el panel de cambios, haz click derecho en el archivo y le das a click a descartar cambios.</p>
+    </ol>
+  </div>
+</div>

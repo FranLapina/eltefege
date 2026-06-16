@@ -1,0 +1,99 @@
+<h1><code>git rebase</code></h1>
+
+<p>El comando git rebase se utiliza para cambiar la base de una rama. Permite reorganizar el historial de commits, integrando los cambios de una rama en otra de forma lineal, en lugar de crear un commit de fusión como lo hace git merge.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p><strong>1. Asegúrate de haber guardado todo tu trabajo</strong></p>
+      <p>Si tienes cambios sin confirmar:</p>
+      <p class="terminal">git add .</p>
+      <p class="terminal">git commit -m "estos son mis cambios"</p>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p><strong>2. Cambia a main y obtén los últimos cambios</strong></p>
+      <p class="terminal">git checkout main</p>
+      <p class="terminal">git pull origin main</p>
+      <p>Esto asegura que main esté actualizado.</p>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p><strong>3. Vuelve a tu rama de sobre la que estabas trabajando</strong></p>
+      <p class="terminal">git checkout mi_rama</p>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p><strong>4. Rebasa sobre main</strong></p>
+      <p class="terminal">git rebase main</p>
+      <p><strong>Qué sucede:</strong></p>
+      <ul>
+        <li>Git elimina temporalmente tus commits de la rama.</li>
+        <li>Mueve tu rama al último commit de main.</li>
+        <li>Reproduce tus commits uno por uno.</li>
+      </ul>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p><strong>5. Resuelve conflictos (si existen)</strong></p>
+      <p>Si hay conflictos, Git se detendrá e indicará qué archivos están afectados.</p>
+      <p><strong>Para cada archivo en conflicto:</strong></p>
+      <ul>
+        <li>Abrelo</li>
+        <li>Arregla el conflicto</li>
+        <li>Marca como resuelto:</li>
+      </ul>
+      <p class="terminal">git add "archivo que quieras poner"</p>
+      <p><strong>Luego continúa:</strong></p>
+      <p class="terminal">git rebase --continue</p>
+      <p>Repite hasta que se complete el rebase.</p>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p><strong>6. Realiza push con --force-with-lease</strong></p>
+      <p>Como rebase reescribe el historial, necesitas hacer push forzado:</p>
+      <p class="terminal">git push --force-with-lease origin mi_rama</p>
+      <p>El <code>--force-with-lease</code> es más seguro que <code>--force</code>: asegura que no sobrescribas accidentalmente el trabajo de otra persona.</p>
+    </ol>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>En la ventana de control de git dentro de VSCode, para realizar un rebase deberás abrir la terminal integrada y ejecutar los comandos <code>git rebase</code> que se han mencionado anteriormente, ya que git rebase no tiene interfaz gráfica directa en VSCode.</p>
+    </ol>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>Si durante el rebase hay conflictos, VSCode te mostrará visualmente los archivos con conflictos en la sección de "Source Control". Puedes hacer click en "Resolve in Merge Editor" para resolver los conflictos de forma interactiva. Una vez resueltos todos los conflictos, deberás hacer click en "Commit" o ejecutar <code>git rebase --continue</code> en la terminal para completar el rebase.</p>
+    </ol>
+  </div>
+</div>

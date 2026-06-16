@@ -1,0 +1,120 @@
+<h1>Jupyter Notebook: Caso Práctico</h1>
+
+<p>Una vez instalado Jupyter Notebook, es importante conocer los conceptos básicos para trabajar con él. Este tutorial te enseña cómo crear, editar y ejecutar celdas en Visual Studio Code.</p>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Tipos de celdas: Code y Markdown</strong></p>
+    <p>En Jupyter existen dos tipos principales de celdas:</p>
+    <ul>
+      <li><strong>Code:</strong> Celdas donde escribes código Python ejecutable. El código se ejecuta cuando presionas el botón "Run" o <code>Ctrl+Enter</code>, y los resultados se muestran debajo de la celda.</li>
+      <li><strong>Markdown:</strong> Celdas para escribir texto formateado, documentación y explicaciones. Puedes usar markdown para crear títulos, listas, tablas, hipervínculos y más. Se renderizan cuando ejecutas la celda.</li>
+    </ul>
+    </br>
+    <p>Para cambiar el tipo de una celda, haz clic en el desplegable de tipo de celda en la barra superior de VSCode.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/jupyter-notebook-caso-practico/1.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Interfaz de celdas en VSCode</strong></p>
+    <ul>
+      <li>Cada celda tiene un botón "Run" (triángulo) a la izquierda</li>
+      <li>Haz clic para ejecutar esa celda</li>
+      <li>O presiona <code>Ctrl+Enter</code> para ejecutar</li>
+      <li>Los resultados aparecen debajo de la celda automáticamente</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Panel de variables en VSCode</strong></p>
+    <ul>
+      <li>VSCode muestra automáticamente un panel con las variables definidas</li>
+      <li>Puedes ver el valor de todas las variables en memoria</li>
+      <li>Útil para debugging y entender el estado del kernel</li>
+      <li>El panel se actualiza cada vez que ejecutas una celda</li>
+    </ul>
+  </div>
+</div>
+
+<h3>⚙️ Características útiles en VSCode</h3>
+
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/visual-studio/jupyter-notebook-caso-practico/2.png">
+    </div>
+  <div class="container-text">
+    
+    <p><strong>Ejecutar varias celdas</strong></p>
+    <ul>
+      <li>Usa "Run All" en la barra superior para ejecutar todas las celdas</li>
+      <li>O "Run All Above" para ejecutar todas las anteriores</li>
+      <li>O "Run All Below" para ejecutar todas las posteriores</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Enviar selección a terminal</strong></p>
+    <ul>
+      <li>Selecciona código en una celda</li>
+      <li>Presiona <code>Shift+Enter</code> para ejecutar solo la selección</li>
+      <li>Útil para ejecutar partes específicas del código</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Reinstiar kernel</strong></p>
+    <ul>
+      <li>Si el kernel falla o quieres limpiar el estado, haz clic en el botón "Restart" en la barra</li>
+      <li>O presiona <code>Ctrl+Shift+F5</code></li>
+      <li>Esto borrará todas las variables en memoria</li>
+    </ul>
+  </div>
+</div>
+
+<h2>📊 Ejemplo práctico: Análisis básico de datos</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <p><strong>Ejemplo: Crear un gráfico simple</strong></p>
+    <p class="terminal"># En caso de no tener instalada alguna librería se hace este paso, si no, se omite</p>
+    <p class="terminal">%pip install pandas numpy matplotlib</p>
+    <p class="terminal"> #------------------------------------------------------------------</p>
+    <p class="terminal">import pandas as pd</p>
+    <p class="terminal">import matplotlib.pyplot as plt</p>
+    <p class="terminal"># Datos de ventas por mes</p>
+    <p class="terminal">meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo']</p>
+    <p class="terminal">ventas = [100, 150, 120, 180, 200]</p>
+    <p class="terminal"># Crear DataFrame</p>
+    <p class="terminal">df = pd.DataFrame({'Mes': meses, 'Ventas': ventas})</p>
+    <p class="terminal">print(df)</p>
+    <p class="terminal"># Crear gráfico</p>
+    <p class="terminal">plt.plot(df['Mes'], df['Ventas'], marker='o')</p>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Tips importantes:</strong></p>
+    <ul>
+      <li>Siempre documenta tu trabajo con celdas Markdown</li>
+      <li>Organiza tu notebook en secciones lógicas</li>
+      <li>Ejecuta las celdas en orden para evitar confusiones</li>
+      <li>Reinicia el kernel regularmente si trabajas con muchas variables</li>
+      <li>Guarda frecuentemente con <code>Ctrl+S</code></li>
+    </ul>
+  </div>
+</div>

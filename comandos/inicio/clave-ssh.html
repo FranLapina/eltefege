@@ -1,0 +1,107 @@
+<h1><code>Clave SSH</code></h1>
+
+
+<p>Puedes acceder y escribir datos en repositorios de GitHub.com mediante SSH (protocolo Secure Shell). Al conectarse a través de SSH, se realiza la autenticación mediante un archivo de clave privada en el equipo local. De esta forma no tienes que escribir la cuenta cada vez que quieras modificar algo en tu repositorio</p>
+
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <li><p>En el terminal escribimos lo siguiente: <p class="terminal">ssh-keygen -t ed25519-sk -C "tucorreo@correodegit.com"</p> Cambiando el correo escrito por el tuyo que uses en github. Te pedirá una "passphrase" es una contraseña para hacer la clave segura, como es tu ordenador personal puedes darlea intro cuando te la pida una vez y la sigueinte de confirmación.</p></i>
+	  </li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/2.png">
+  </div>
+  <div class="container-text">
+    <ol start="2">
+      <li><p>Ahora hemos de iniciar el agente ssh en segundo plano escribiendo el siguiente comando: <p class="terminal">eval "$(ssh-agent -s)"</p></p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/3.png">
+  </div>
+  <div class="container-text">
+    <ol start="3">
+      <li><p>Agregamos la llave privada SSH al ssh-agent escribiendo el siguiente comando: <p class="terminal">ssh-add ~/.ssh/id_ed25519</p></p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/4.png">
+  </div>
+  <div class="container-text">
+    <ol start="4">
+      <li><p>Ahora hay que copiar la clave generada para poder escribirla en github, para ello escribe lo siguiente en el terminal: <p class="terminal">cat ~/.ssh/id_ed25519.pub</p>Y copia desde "ssh-ed.." hasta tu correo, incluido. Tal como ves en la captura.</p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/5.png" style="width:40%;display:auto;margin: 10px auto">
+  </div>
+  <div class="container-text">
+    <ol start="5">
+     <li><p>Entramos en la página de github y hacemos click en nuestro perfil para darle a ajustes tal como está marcado en la captura de pantalla</p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/6.png">
+  </div>
+  <div class="container-text">
+    <ol start="6">
+     <li><p>Habiendo entrado en ajustes, le damos a "SSH and GPG Keys" tal y como se ve en la captura. Está localizado en el panel izquierdo.</p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/7.png">
+  </div>
+  <div class="container-text">
+    <ol start="7">
+      <li><p>Hacemos click en "New SSH Key"</p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/8.png">
+  </div>
+  <div class="container-text">
+    <ol start="8">
+      <li><p>Le damos nombre a la Key para saber cual es en caso de tener varias en algún momento, la "key type" la dejamos en "Authentication Key" y en "Key" copiamos la clave previamente copiada en el portapapeles con el comando:<p class="terminal">cat ~/.ssh/id_ed25519.pub</p>Y hacemos click en "Add SSH Key"</p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/9.png">
+  </div>
+  <div class="container-text">
+    <ol start="9">
+      <li><p>Como previamente, clonamos el repositorio por HTTPS necesitamos cambiarlo a SSH, para ello copiamos el enlace SSH de la página del repositorio dentro de la web de github.</p></i></li>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/clave-ssh/10.png">
+  </div>
+  <div class="container-text">
+    <ol start="10">
+      <li><p>Ahora, podemos escribir lo siguiente en el terminal (recordad que lo que sigue a "origin" es algo diferente ya que es vuestro repositorio): <p class="terminal">git remote set-url origin git@github.com:propietariodelrepo/nombredelrepositorio.git</p></p></i></li>
+    </ol>
+  </div>
+</div>

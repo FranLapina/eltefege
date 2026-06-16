@@ -1,0 +1,50 @@
+<h1><code>git fetch</code></h1>
+<p>Se utiliza para descargar los cambios del repositorio remoto a tu máquina local sin integrarlos en tu rama actual. A diferencia de <code>git pull</code>, no realiza una fusión automática, lo que te permite revisar los cambios antes de incorporarlos.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-fetch/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>Dentro de la carpeta ejecutamos lo siguiente: <p class="terminal">git fetch</p>Esto descargará todos los cambios del repositorio remoto, pero no los integrará en tu rama local. Los cambios se guardan en ramas de seguimiento remoto (como origin/main), permitiéndote revisarlos antes de fusionarlos.</p>
+    </ol>
+  </div>
+</div>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-fetch/2.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>Como podemos ver, si hacemos git status o commit nos dice que vamos "1 pull por detras" ya que hemos descargado una preview de lo que hay en la rama actualmente.</p>
+    </ol>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>Para descargar cambios de una rama remota específica: <p class="terminal">git fetch origin <i>(nombre de la rama)</i></p></p>
+      <p>Para descargar cambios de todos los repositorios remotos: <p class="terminal">git fetch --all</p></p>
+      <p>Después de hacer fetch, puedes revisar los cambios y fusionarlos manualmente con <code>git merge</code>: <p class="terminal">git merge origin/<i>(nombre de la rama)</i></p>O combinar fetch y merge en un solo paso con <code>git pull</code>: <p class="terminal">git pull</p></p>
+    </ol>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/git-fetch/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>En la ventana de control de git dentro de vscode, puedes hacer fetch haciendo click en el menú extendido (3 puntos horizontales) y seleccionar "Fetch". Esto descargará los cambios del repositorio remoto sin fusionarlos automáticamente. Luego puedes revisar los cambios antes de hacer merge o pull.</p>
+    </ol>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<h1><code>git rm</code></h1>
+<p>Se utiliza para eliminar archivos del repositorio Git. A diferencia de simplemente borrar un archivo, <code>git rm</code> elimina el archivo tanto del directorio de trabajo como del staging area (área de preparación), registrando la eliminación en Git.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-rm/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>Dentro de la carpeta ejecutamos lo siguiente: <p class="terminal">git rm <i>(nombre del archivo)</i></p>Esto elimina el archivo del directorio de trabajo y del staging area. El cambio queda preparado para ser commiteado. Después debes hacer <code>git commit</code> para confirmar la eliminación en el historial de Git.</p>
+    </ol>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>Para eliminar un archivo específico: <p class="terminal">git rm <i>(nombre del archivo)</i></p></p>
+      <p>Para eliminar un directorio completo y todos sus archivos: <p class="terminal">git rm -r <i>(nombre del directorio)</i></p></p>
+      <p>Para eliminar un archivo solo del staging area (sin borrar el archivo del directorio): <p class="terminal">git rm --cached <i>(nombre del archivo)</i></p>Esto es útil si accidentalmente agregaste un archivo que no querías trackear.</p>
+      <p>Para eliminar múltiples archivos: <p class="terminal">git rm <i>(archivo1)</i> <i>(archivo2)</i> <i>(archivo3)</i></p></p>
+      <p>Para eliminar archivos que coincidan con un patrón: <p class="terminal">git rm <i>*.log</i></p>Esto eliminaría todos los archivos con extensión .log</p>
+    </ol>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/git-rm/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>En VSCode, para eliminar un archivo que está siendo trackeado por Git, simplemente eliminalo del explorador de archivos. Git detectará la eliminación y lo mostrará como cambio en el panel de control de Git. Haz click en el ícono "+" junto al archivo eliminado para agregarla al staging area, o directamente haz commit para confirmar la eliminación. También puedes hacer click derecho en un archivo en el explorador y seleccionar eliminar.</p>
+    </ol>
+  </div>
+</div>

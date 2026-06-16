@@ -1,0 +1,58 @@
+<h1><code>.gitignore</code></h1>
+
+<p>El archivo <code>.gitignore</code> especifica qué archivos y carpetas deben ser ignorados por Git. Es útil para excluir archivos generados automáticamente, archivos de configuración locales, dependencias o cualquier archivo que no desees commitear.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>En la raíz de tu repositorio, crea un archivo <code>.gitignore</code>:</p>
+      <p class="terminal">echo > .gitignore</p>
+      <p>O en Windows PowerShell:</p>
+      <p class="terminal">New-Item -Name ".gitignore" -ItemType File</p>
+      <p>Luego abre el archivo con tu editor favorito y añade los patrones de archivos/carpetas que deseas ignorar. Por ejemplo:</p>
+      <p class="terminal">node_modules/<br>
+.env<br>
+.DS_Store<br>
+*.log<br>
+dist/</p>
+    </ol>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/git-ignore/1.png" alt="Crear .gitignore en VS Code">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>Haz clic derecho en la raíz del proyecto en el explorador de archivos y selecciona "New File" (Nuevo archivo)</p>
+      <p>Nombra el archivo como <code>.gitignore</code></p>
+      <p>Añade los patrones que deseas ignorar, uno por línea. Algunos ejemplos comunes:</p>
+      <ul>
+        <li><code>node_modules/</code> - Carpeta de dependencias de Node.js</li>
+        <li><code>.env</code> - Archivo de variables de entorno</li>
+        <li><code>*.log</code> - Todos los archivos de log</li>
+        <li><code>.DS_Store</code> - Archivos del sistema macOS</li>
+        <li><code>dist/</code> - Carpeta de compilación</li>
+      </ul>
+      <p>Una vez guardado, Git ignorará automáticamente los archivos y carpetas especificados</p>
+    </ol>
+  </div>
+</div>
+
+<h2>💡 Consejos</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ul>
+      <li>Si ya has commitido archivos que ahora quieres ignorar, necesitarás hacer un commit adicional para eliminarlos del repositorio</li>
+      <li>Puedes usar patrones con <code>*</code> para coincidir múltiples archivos (ej: <code>*.pyc</code>)</li>
+      <li>Usa <code>#</code> para añadir comentarios en el archivo <code>.gitignore</code></li>
+      <li>Revisa <a href="https://www.gitignore.io/" target="_blank">gitignore.io</a> para obtener plantillas predefinidas según tu tipo de proyecto</li>
+    </ul>
+  </div>
+</div>

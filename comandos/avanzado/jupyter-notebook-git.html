@@ -1,0 +1,54 @@
+<h1>Jupyter Notebook: Integración con Git</h1>
+
+<p>Una vez que hayas creado tu notebook con el análisis de datos (como el ejemplo del caso práctico), es importante versionarlo con Git para mantener un historial de cambios y colaborar con otros.</p>
+
+<h2>💻 Cómo usar Git con Jupyter Notebooks</h2>
+</br>
+
+<div class="container">
+    <div class="container-image">
+        <img src="../../imagenes/jupyter-notebook-git/1.png">
+    </div>
+  <div class="container-text">
+    <p>Ahora que hemos subido el notebook a Git, podemos gestionar sus versiones y colaborar con otros, igual que con otros archivos de código.</p>
+    <p>En nuestro caso, el sencillo ejemplo propuesto en el caso práctico quedaría como se refleja en la captura.</p>
+  </div>
+</div>
+
+<h3>⚙️ Buenas prácticas</h3>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Haz commits frecuentes</strong></p>
+    <ul>
+      <li>Cada vez que completes una análisis o agregues una visualización nueva, haz un commit</li>
+      <li>Usa mensajes descriptivos: "Agregar gráfico de ventas" en lugar de "cambios"</li>
+      <li>Esto te permite volver a versiones anteriores si algo sale mal</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Crear un archivo .gitignore</strong></p>
+    <p>Crea un archivo <code>.gitignore</code> en tu carpeta con:</p>
+    <p class="terminal"># Ignorar archivos innecesarios</p>
+    <p class="terminal">__pycache__/</p>
+    <p class="terminal">.ipynb_checkpoints/</p>
+    <p class="terminal">*.pyc</p>
+    <p class="terminal">venv/</p>
+    <p>Esto evita subir archivos temporales y carpetas pesadas.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Colaborar con otros</strong></p>
+    <ul>
+      <li>Sube tu repositorio a GitHub: <code>git push origin main</code></li>
+      <li>Tus compañeros pueden clonar el repositorio y ver tu notebook</li>
+      <li>Usan <code>git pull</code> para obtener tus cambios más recientes</li>
+      <li>Si hay conflictos, Git te ayudará a resolverlos</li>
+    </ul>
+  </div>
+</div>

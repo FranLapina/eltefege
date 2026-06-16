@@ -1,0 +1,98 @@
+<h1><code>git cherry-pick</code></h1>
+
+<p>El comando git cherry-pick se utiliza para aplicar cambios específicos (commits) de una rama a otra. Es útil cuando quieres seleccionar commits específicos sin integrar toda la rama, permitiendo "copiar" cambios individuales entre ramas.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-cherry-pick/1.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Ver el hash del commit</strong></p>
+    <p>Para obtener el hash del commit que deseas aplicar:</p>
+    <p class="terminal">git log --oneline</p>
+    <p>Esto te mostrará una lista compacta de commits con sus hashes:</p>
+    <p class="terminal">abc1234 Agregar nueva característica</p>
+    <p class="terminal">def5678 Corregir error en login</p>
+    <p>Para salir, presiona la tecla 'q'.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-cherry-pick/2.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Aplicar un commit específico</strong></p>
+    <p>Para aplicar un commit de otra rama a la rama actual:</p>
+    <p class="terminal">git cherry-pick <commit-hash></p>
+    <p>Por ejemplo:</p>
+    <p class="terminal">git cherry-pick abc1234</p>
+    <p>Esto copia el commit especificado y lo aplica a tu rama actual.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-cherry-pick/3.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Avisos que saldrán</strong></p>
+    <p>Como pudimos ver en la captura anterior, cherry-pick nos dice que hay un conflicto, estamos aplicando cambios de un commit anterior al estado actual del proyecto.</p>
+    <p>En vscode, este conflicto se mostrará automáticamente, permitiéndote resolverlo manualmente. Hemos de hacer click en el botón que tenemos disponible como se ve en la captura.</p>
+    <p>Deberemos hacer commit en vscode o la terminal después de resolver los conflictos.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-cherry-pick/2.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Resolver</strong></p>
+    <p>Con el commit hecho ya podemos completar el cherry-pick después de resolver los conflictos:</p>
+    <p class="terminal">git cherry-pick abc1234</p>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Continuar si hay conflictos</strong></p>
+    <p>Si durante el cherry-pick hay conflictos, Git pausará el proceso:</p>
+    <p class="terminal">git cherry-pick --continue</p>
+    <p>Usa esto después de resolver los conflictos manualmente en los archivos.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Cancelar el cherry-pick</strong></p>
+    <p>Si algo sale mal y quieres abortar la operación:</p>
+    <p class="terminal">git cherry-pick --abort</p>
+    <p>Esto deshace el cherry-pick y vuelve a tu estado anterior.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Aplicar sin realizar commit automático</strong></p>
+    <p>Para aplicar los cambios pero sin crear el commit automáticamente:</p>
+    <p class="terminal">git cherry-pick -n <commit-hash></p>
+    <p>O la versión larga:</p>
+    <p class="terminal">git cherry-pick --no-commit <commit-hash></p>
+    <p>Esto te permite revisar o modificar los cambios antes de hacer commit.</p>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <p>Visual Studio Code no tiene interfaz gráfica nativa para cherry-pick. Deberás usar la terminal integrada para ejecutar los comandos.</p>
+  </div>
+</div>

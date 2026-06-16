@@ -1,0 +1,43 @@
+<h1><code>git remote</code></h1>
+<p>Se utiliza para gestionar conexiones con repositorios remotos como GitHub. Permite visualizar, agregar, modificar y eliminar referencias a repositorios remotos desde los que puedes hacer push, pull y fetch.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-remote/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>Dentro de la carpeta ejecutamos lo siguiente: <p class="terminal">git remote -v</p>Esto mostrará todos los repositorios remotos conectados a tu proyecto local con sus URLs. Por defecto, suele haber un remoto llamado "origin" que apunta a tu repositorio en GitHub. En mi caso solo se muestra un repositorio remoto con la URL correspondiente (tanto para fetch como para push, ya que aun no he hecho pull para bajarme la versión actual).</p>
+      <p>Si tienes varios repositorios en una carpeta podrías ver a que URL corresponde cada uno. Viene bien si tienes varios trabajos y quieres recordar a que URL corresponde cada uno.</p>
+    </ol>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>Para listar todos los remotos: <p class="terminal">git remote</p></p>
+      <p>Para agregar un nuevo repositorio remoto: <p class="terminal">git remote add <i>(nombre)</i> <i>(URL del repositorio)</i></p>Por ejemplo: <p class="terminal">git remote add origin https://github.com/usuario/repositorio.git</p></p>
+      <p>Para cambiar la URL de un remoto existente: <p class="terminal">git remote set-url <i>(nombre)</i> <i>(nueva URL)</i></p></p>
+      <p>Para eliminar un repositorio remoto: <p class="terminal">git remote remove <i>(nombre)</i></p></p>
+      <p>Para ver información detallada de un remoto: <p class="terminal">git remote show <i>(nombre)</i></p></p>
+    </ol>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/visual-studio/git-remote/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>En VSCode, puedes ver y gestionar los repositorios remotos a través de la paleta de comandos (Ctrl+Mayús+P) buscando "Git: Add Remote" o "Git: Remove Remote". También puedes ver el remoto actual en la rama que estés utilizando, en la pestaña de git de VSCode. El remoto "origin" suele comunicarse automáticamente con tu repositorio en GitHub establecido durante la clonación o inicialización.</p>
+    </ol>
+  </div>
+</div>

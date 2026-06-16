@@ -1,0 +1,29 @@
+<h1><code>git show</code></h1>
+<p>Se utiliza para mostrar información detallada sobre un commit específico, incluyendo sus cambios (diff), autor, fecha y mensaje. Es útil para revisar qué cambios se realizaron en un commit en particular.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-show/1.png">
+  </div>
+  <div class="container-text">
+    <ol>
+      <p>Dentro de la carpeta ejecutamos lo siguiente: <p class="terminal">git show <i>(hash del commit)</i></p>Esto mostrará toda la información del commit especificado: autor, fecha, mensaje y todos los cambios realizados en ese commit. Para ver el último commit puedes usar: <p class="terminal">git show HEAD</p></p>
+    </ol>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+</br>
+<div class="container">
+  <div class="container-text">
+    <ol>
+      <p>Para mostrar el último commit: <p class="terminal">git show HEAD</p></p>
+      <p>Para mostrar el penúltimo commit: <p class="terminal">git show HEAD~1</p></p>
+      <p>Para ver solo el diff sin los detalles del commit: <p class="terminal">git show --stat <i>(hash)</i></p></p>
+      <p>Para ver los cambios de un archivo específico en un commit: <p class="terminal">git show <i>(hash)</i>:<i>(ruta del archivo)</i></p></p>
+      <p>Para ver un archivo completo tal como estaba en ese commit: <p class="terminal">git show <i>(hash)</i>:<i>(ruta del archivo)</i></p></p>
+    </ol>
+  </div>
+</div>

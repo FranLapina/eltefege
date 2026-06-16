@@ -1,0 +1,113 @@
+<h1><code>git stash</code></h1>
+
+<p>El comando git stash se utiliza para guardar temporalmente cambios que no estás preparado para confirmar. Es útil cuando necesitas cambiar de rama sin hacer commit de cambios incompletos, o cuando quieres limpiar tu área de trabajo sin perder el trabajo realizado.</p>
+
+<h2>⌨️ En terminal</h2>
+</br>
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-stash/1.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Guardar cambios en stash</strong></p>
+    <p>Para guardar todos tus cambios sin confirmar:</p>
+    <p class="terminal">git stash</p>
+    <p>O con un mensaje descriptivo:</p>
+    <p class="terminal">git stash save "Descripción de tus cambios"</p>
+    <p>Esto elimina tus cambios del directorio de trabajo y los guarda temporalmente.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-stash/2.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Ver los stash guardados</strong></p>
+    <p>Para ver una lista de todos tus stash:</p>
+    <p class="terminal">git stash list</p>
+    <p>Verás algo como:</p>
+    <p class="terminal">stash@{0}: WIP on main: abcd123 Mi último commit</p>
+    <p class="terminal">stash@{1}: WIP on mi_rama_1: ef56789 Otro commit</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-image">
+    <img src="../../imagenes/git-stash/3.png">
+  </div>
+  <div class="container-text">
+    <p><strong>Ver los cambios en un stash específico</strong></p>
+    <p>Para ver qué cambios contiene un stash:</p>
+    <p class="terminal">git stash show stash@{0}</p>
+    <p>O para ver en más detalle:</p>
+    <p class="terminal">git stash show -p stash@{0}</p>
+  </div>
+</div>
+
+<h3>⚙️ Opciones comunes</h3>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Recuperar cambios del stash</strong></p>
+    <p>Para recuperar los cambios más recientes:</p>
+    <p class="terminal">git stash pop</p>
+    <p>O para recuperar un stash específico:</p>
+    <p class="terminal">git stash pop stash@{1}</p>
+    <p><strong>Nota:</strong> <code>pop</code> aplica los cambios y elimina el stash. Si hay conflictos, deberás resolverlos manualmente.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Aplicar cambios sin eliminar el stash</strong></p>
+    <p>Para aplicar cambios pero mantener el stash:</p>
+    <p class="terminal">git stash apply</p>
+    <p>O para un stash específico:</p>
+    <p class="terminal">git stash apply stash@{0}</p>
+    <p>Esto es útil si quieres aplicar los mismos cambios en múltiples ramas.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Eliminar stash</strong></p>
+    <p>Para eliminar el stash más reciente:</p>
+    <p class="terminal">git stash drop</p>
+    <p>O para eliminar un stash específico:</p>
+    <p class="terminal">git stash drop stash@{1}</p>
+    <p>Para eliminar todos los stash:</p>
+    <p class="terminal">git stash clear</p>
+  </div>
+</div>
+
+<h2>💻 En Visual Studio Code</h2>
+</br>
+<div class="container">
+  <div class="container-text">
+    <p>En la ventana de control de git dentro de VSCode, no hay interfaz gráfica directa para stash. Deberás abrir la terminal integrada y ejecutar los comandos <code>git stash</code> mencionados anteriormente. Sin embargo, puedes ver los cambios sin confirmar en la sección "Source Control" antes de ejecutar el comando.</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Para hacer stash en VSCode:</strong></p>
+    <ul>
+      <li>Abre la terminal integrada con <code>Ctrl+`</code></li>
+      <li>Ejecuta <code>git stash</code> o <code>git stash save "tu descripción"</code></li>
+      <li>Verifica que los cambios se han guardado con <code>git stash list</code></li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-text">
+    <p><strong>Para recuperar cambios del stash en VSCode:</strong></p>
+    <ul>
+      <li>Abre la terminal integrada</li>
+      <li>Ejecuta <code>git stash pop</code> para recuperar el más reciente</li>
+      <li>O <code>git stash apply stash@{n}</code> para recuperar un stash específico</li>
+      <li>Si hay conflictos, VSCode te mostrará los archivos conflictivos. Puedes usar "Resolve in Merge Editor" para resolverlos de forma interactiva.</li>
+    </ul>
+  </div>
+</div>

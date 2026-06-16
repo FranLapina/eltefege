@@ -1,0 +1,402 @@
+/* Reset y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Establece altura al 100% para html y body para que puedan ocupar toda la pantalla */
+html,
+body {
+  height: 100%;
+}
+
+/* Estilos generales del cuerpo de la página */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: #f6f8fa; /* Fondo gris claro */
+  color: #24292e; /* Color de texto oscuro */
+}
+
+/* Elimina subrayado de los enlaces y hereda el color del texto */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Barra superior fija que contiene el logo */
+.topbar {
+  position: fixed; /* Se mantiene fijo al desplazarse */
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: #fff; /* Fondo blanco */
+  border-bottom: 1px solid #e1e4e8; /* Borde gris claro */
+  z-index: 100; /* Por encima de otros elementos */
+}
+
+/* Contenedor interno de la topbar */
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 16px;
+}
+
+/* Estilo del logo */
+.logo {
+  font-weight: bold;
+}
+/* Imagen del logo */
+.logo img{
+  width: 150px;  /* Ajusta el ancho al tamaño que quieras */
+  height: auto;   /* Esto mantiene la proporción original para que no se deforme */
+}
+/* Layout principal: contenedor flexbox que ajusta el padding superior */
+.layout-container {
+  display: flex;
+  padding-top: 50px; /* Espacio para la topbar fija */
+}
+
+/* Barra lateral fija con menú de niveles y comandos */
+.sidebar {
+  width: 240px;
+  background: #fff; /* Fondo blanco */
+  border-right: 1px solid #e1e4e8; /* Borde derecho gris claro */
+  height: calc(100vh - 50px); /* Altura total menos topbar */
+  overflow-y: auto; /* Scroll vertical si es necesario */
+  position: fixed;
+  top: 50px;
+}
+
+/* Área de contenido principal */
+.content {
+  margin-left: 240px; /* Espacio para la sidebar */
+  padding: 32px;
+  width: calc(100% - 240px);
+}
+
+/* Títulos principales en el contenido */
+.content h1 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+/* Lista principal de la sidebar */
+#sidebar {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Elemento de cada nivel (Inicio, Principiante, Intermedio, Avanzado) */
+.level-item {
+  border-bottom: 1px solid #e1e4e8;
+}
+
+/* Botón de cada nivel - expandible */
+.level-btn {
+  width: 100%;
+  text-align: left;
+  padding: 14px 21px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  color: #24292e;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.2s;
+}
+
+/* Efecto hover en los botones de nivel */
+.level-btn:hover {
+  background: rgba(27,31,35,0.05); /* Fondo gris muy claro en hover */
+}
+
+/* Triángulo indicador de expansión/colapso */
+.level-btn::after {
+  content: '▸';
+  position: absolute;
+  right: 16px;
+  transition: transform 0.2s;
+}
+
+/* Rotación del triángulo cuando el nivel está expandido */
+.level-item.expanded .level-btn::after {
+  transform: rotate(90deg);
+}
+
+/* Lista de comandos dentro de cada nivel */
+.commands {
+  list-style: none;
+  display: none; /* Oculta por defecto */
+}
+
+/* Muestra los comandos cuando el nivel está expandido */
+.level-item.expanded .commands {
+  display: block;
+}
+
+/* Botón individual de cada comando */
+.command-btn {
+  width: 100%;
+  text-align: left;
+  padding: 9px 42px;
+  border: none;
+  background: transparent;
+  font-size: 13px;
+  color: #24292e;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Efecto hover en los botones de comando */
+.command-btn:hover {
+  background: rgba(27,31,35,0.05);
+}
+
+/* Estilo del comando actualmente seleccionado */
+.command-btn.active {
+  color: #0366d6; /* Texto en azul */
+  border-left: 3px solid #0366d6; /* Borde izquierdo azul */
+  background: rgba(3,102,214,0.1); /* Fondo azul muy claro */
+}
+
+/* Títulos h2 que introducen secciones (En terminal, En Visual Studio Code, etc.) */
+.content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1.2px solid #24292e; /* Línea inferior negra */
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  letter-spacing: 1px; /* Separación entre letras */
+  color: #24292e; /* Texto negro */
+  background: #f6f8fa; /* Fondo gris claro */
+  text-align: center; /* Centra el texto */
+}
+
+/* Títulos h3 que introducen subsecciones (Opciones comunes dentro de En terminal) */
+.content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+  border-left: 3px solid #24292e; /* Línea izquierda negra como identificador de subsección */
+  font-size: 18px;
+  font-weight: bold;
+  color: #24292e; /* Texto negro */
+  background: transparent;
+  letter-spacing: 0.5px;
+}
+
+/* Bloque de código para mostrar comandos de terminal */
+p.terminal {
+  background: #fff; /* Fondo blanco */
+  border: 1px solid #d1d5da; /* Borde gris claro */
+  border-radius: 3px;
+  padding: 8px 16px;
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; /* Fuente monoespaciada */
+  font-size: 90%;
+  color: #000; /* Texto negro */
+}
+
+/* Estilos para mensajes de error y carga */
+.content .error {
+  color: red; /* Texto rojo para errores */
+}
+
+.content p.loading {
+  font-style: italic; /* Texto en itálica para estado de carga */
+}
+
+/* Elementos de lista con espaciado adicional del borde izquierdo */
+.content li {
+  margin-left: 1.2rem; /* Aumenta el margen izquierdo en 20% */
+  margin-bottom: 0.6rem; /* Aumenta el espaciado vertical entre li en 20% */
+}
+
+/* Estilos para secciones de historia */
+.story p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6; /* Interlineado para mejor legibilidad */
+}
+
+/* Espaciado adicional entre párrafos consecutivos */
+.story p + p {
+  margin-top: 1.5rem;
+}
+
+/* Contenedor de imagen y título en secciones de historia */
+.story-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+/* Título dentro de story-image */
+.story-image h2 {
+  font-size: 18px;
+  color: #24292e;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+/* Tabla comparativa centrada y estilizada */
+.story-comparison {
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+/* Estilos de la tabla */
+.story-comparison table {
+  border-collapse: separate;
+  border-spacing: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Sombra sutil */
+  border-radius: 6px;
+  overflow: hidden;
+  width: auto;
+}
+
+/* Encabezados de tabla */
+.story-comparison thead th {
+  background: #f6f8fa; /* Fondo gris claro */
+  font-weight: 600;
+  padding: 12px 24px;
+  text-align: center;
+}
+
+/* Celdas de tabla */
+.story-comparison tbody td {
+  background: #fff;
+  padding: 12px 24px;
+  text-align: center;
+  border-bottom: 1px solid #e1e4e8;
+  font-size: 14px;
+  color: #24292e;
+}
+
+/* Elimina borde bottom de la última fila */
+.story-comparison tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Contenedor principal de secciones de historia */
+.story {
+  background: #fff;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Contenedor de explicaciones con imágenes y texto lado a lado */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; /* Espacio entre imagen y texto */
+  margin-bottom: 2rem;
+}
+
+/* Contenedor de imágenes dentro del container */
+.container-image {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra las imágenes */
+  justify-content: center; /* Centra verticalmente */
+  gap: 1rem;
+  background: #f6f8fa; /* Fondo gris claro */
+  border: 1px solid #d1d5da; /* Borde gris */
+  border-radius: 6px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+}
+
+/* Estilos de las imágenes */
+.container-image img {
+  max-width: 100%; /* Mantiene proporción */
+  width: auto;
+  height: auto;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  cursor: pointer; /* Indica que es clickeable */
+  transition: opacity 0.2s ease;
+}
+
+/* Efecto hover en imágenes - se vuelven semi-transparentes */
+.container-image img:hover {
+  opacity: 0.8;
+}
+
+/* Modal para mostrar imágenes expandidas */
+.image-zoom-modal {
+  display: none;
+  position: fixed; /* Cubre toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro semi-transparente */
+  z-index: 1000; /* Por encima de todo */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Activa la visualización del modal */
+.image-zoom-modal.active {
+  display: flex;
+}
+
+/* Imagen dentro del modal */
+.image-zoom-modal img {
+  max-width: 90%;
+  max-height: 90vh; /* Altura máxima 90% de la ventana */
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Sombra pronunciada */
+  animation: zoomIn 0.3s ease;
+}
+
+/* Animación de entrada para el zoom */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Contenedor de texto junto a las imágenes */
+.container-text {
+  flex: 2;
+  background: #fff;
+  border: 1px solid #d1d5da;
+  border-radius: 6px;
+  padding: 1.5rem;
+}
+
+/* Párrafos dentro de container-text */
+.container-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Listas ordenadas dentro de container-text */
+.container-text ol {
+  padding-left: 1.25rem;
+}
+
+/* Items de lista dentro de container-text */
+.container-text ol li {
+  margin-bottom: 0.75rem;
+}
